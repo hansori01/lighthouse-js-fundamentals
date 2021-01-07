@@ -67,7 +67,7 @@ function laugh(num) {
     sound += 'ha';
   }
 //every time loop runs, 'ha' is added to the sound variable.
-  sound = sound + '!';
+ sound = sound + '!';
 //once loop is done, the function adds ! to sound. (this is a local variable)
   return sound;
 }
@@ -179,3 +179,84 @@ for(var x = 2; x<interger; x++){
 
   */
 
+
+
+// Function Expression
+
+/*Function Expressions, where functions are stored in variables are handy
+as these are not hoisted. Only runs when called or executed.
+You can see the similariy, minus the name of the function - since there is already a name of variable */
+ let catSays = function(max) {
+  let catMessage = "";
+  for (let i = 0; i < max; i++) {
+    catMessage += "meow ";
+  }
+  return catMessage;
+};
+
+console.log(catSays(5));
+
+//Function as Parameters
+
+/*A function that is passed into another function is called a callback.
+See below */
+
+//func. expression - catSays
+let catSays = function(max) {
+  let catMessage = '';
+  for (let i=0; i<max; i++){
+    catMessage += 'meow ';
+  }
+  return catMessage;
+  }
+// function declaration helloCat accepting a callback
+  function helloCat(callbackFunc) {
+    return 'Hello' + callbackFunc(3);
+  }
+  // pass in catSays as a callback Function.
+helloCat(catSays);
+ console.log(helloCat(catSays));
+
+
+
+ // INLINE FUNCTION EXPRESSION
+
+ /* this is one of the hardest things for me to understand so far..
+ I will try my best to explain in my own words */
+
+ /*variable is called favoriteMovie and it holds a function named displayFavorite with movieName parameter.
+ when calling favoriteMovie('Nemo') or displayFavorite('Nemo') neither of these things work.
+ Why?? I know that it is because we can't call the function name independetly from the variable. 
+*/
+ let favoriteMovie = function displayFavorite(movieName) {
+// this function is stored in a variable. All the function does is takes a movie name and adds to a string.
+   console.log('My fav movie is ' + movieName);
+ }
+
+ //func. dec. with a parameter of messageFunction and name
+ function movies(messageFunction, name) {
+  // this messageFunction(name) is super SUS.. why is this in here?
+   messageFunction(name);
+ }
+// how does the "nemo" get passed down to the movieName argument?
+ movies(favoriteMovie, 'Nemo');
+
+ // go over the concept above.
+
+ /* You can bypass the first assignment of the function,
+ by passing the function to the movies() function inline. */
+
+
+ //ANONYMOUS INLINE FUNTION
+ // THIS IS FOR FUNCTION THAT WON"T GET REUSED LATER
+ // CAN SAVE MANY LINES OF CODE..
+ 
+ function movies(messageFunction, name) {
+   messageFunction(name);
+ }
+
+ movies(function displayFavorite(movieName) {
+   console.log('My favorite movie is ' + movieName);
+ }, 'Neemo');
+
+ //ok so lost. ??
