@@ -61,7 +61,7 @@ let sound = ''
 //global scope. Empty string bank where the 'ha's will get stored.
 function laugh(num) {
 //declaring function laugh with param of num.
-  for (let i = num; i < num; i++){
+  for (let i = 0; i < num; i++){
 // this loop runs from 0 to -1 of the num argument.
 //I can also do (let i=num ; num>0; num--);
     sound += 'ha';
