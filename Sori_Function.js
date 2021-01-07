@@ -1,3 +1,15 @@
+/* 
+
+*****
+
+HEAD DOWN BELOW AND REVIEW anonymous inline FUNCTION! 
+
+***** 
+
+*/
+
+
+
 //BASIC FUNCTION.. notice the lack of return!
 function sayHello() {
   var message ='Hello';
@@ -6,7 +18,7 @@ console.log(sayHello());
 // undefined
 
 /* we can store the console.log if we want to print 
-Hello every time we run this function.if we want to use the 
+'Hello' every time we run this function.if we want to use the 
 string to concatenate or other reasons, we simply return it.
 */
 
@@ -221,42 +233,60 @@ helloCat(catSays);
 
  // INLINE FUNCTION EXPRESSION
 
- /* this is one of the hardest things for me to understand so far..
- I will try my best to explain in my own words */
+ /* this was a hard concept to understand last night, but after taking a break
+ it seems so much clearer to me.
 
- /*variable is called favoriteMovie and it holds a function named displayFavorite with movieName parameter.
- when calling favoriteMovie('Nemo') or displayFavorite('Nemo') neither of these things work.
- Why?? I know that it is because we can't call the function name independetly from the variable. 
+ We are calling a function (like a parent function almost) and within the parameter,
+ the argument is ANOTHER function! The 1st example shows the messageFunction (favoriteMovie)
+ get declared outside of that. But we can also shorten the syntax by declaring the function
+as we call the 'parent' function in the argument.
+
 */
+
+// this function prints a message + movieName which is set as the parameter.
  let favoriteMovie = function displayFavorite(movieName) {
-// this function is stored in a variable. All the function does is takes a movie name and adds to a string.
    console.log('My fav movie is ' + movieName);
  }
 
- //func. dec. with a parameter of messageFunction and name
+ // this function has two parameters. One where the 'messageFunction' goes in. and One for a name.
  function movies(messageFunction, name) {
-  // this messageFunction(name) is super SUS.. why is this in here?
+// this function's job is to turn the 'name' parameter as a value for the 1st parameter.
+// when we call 'favoriteMovie' later, the (name) becomes (movieName)
    messageFunction(name);
  }
-// how does the "nemo" get passed down to the movieName argument?
+//we call the second function.
+// 1st parameter is displayFavorite(movieName) function.
+// we know that the 'parent' function turns the second argument into a function argument for the 'child' function.
+// this is hella confusing but I think will become clearer as I find actual practical uses for this.
  movies(favoriteMovie, 'Nemo');
 
- // go over the concept above.
 
- /* You can bypass the first assignment of the function,
- by passing the function to the movies() function inline. */
+
+ /* 
+ 
+ We are now going to do the exact same thing as above,
+ but save a few lines of code.
+ With an inline function, we are DECLARING the favoriteMovie function
+ when we call the 'movies' function. So we can declare and call a function
+ when it is being used as an argument.
+                                           */
 
 
  //ANONYMOUS INLINE FUNTION
- // THIS IS FOR FUNCTION THAT WON"T GET REUSED LATER
- // CAN SAVE MANY LINES OF CODE..
- 
+ // We use this for functions that won't get used later.
+ // This saves data and keeps the SCOPE of function tighter.
+
+// we are declaring 'movies' function - I think of this as the 'parent' function.
  function movies(messageFunction, name) {
+// this function turns the second parameter as a parameter for the function that is used as first argument.
    messageFunction(name);
  }
 
+ // we call this 'parent' function. In the first argument we declare a NEW function, 'displayFavorite'
  movies(function displayFavorite(movieName) {
+// this inline function prints a string and adds a movieName argument.
    console.log('My favorite movie is ' + movieName);
+// because the 'parent' function transforms the second argument into an argument for the 1st function
+// this argument below gets slotted into (movieName) parameter.
  }, 'Neemo');
-
- //ok so lost. ??
+// the ')' confused for so much last night. but I see it now. We are finishing the movie function!
