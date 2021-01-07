@@ -27,7 +27,22 @@ emotions('happy', function(num) {
       // the ) bracket below is because the whole function is an argument.
   });
 
+// Practiced the above with a while loop.
 
+  function emotions(myString, myFunc) {
+    console.log('I am ' + myString + ', ' + myFunc(3));
+  }
+
+emotions('super happy', function(num){
+  let haha = '';
+  let i = 0;
+  while (i<num){
+    haha += 'ha';
+    i++;
+  }
+  haha += '!';
+  return haha;
+})
 
 /*
 
