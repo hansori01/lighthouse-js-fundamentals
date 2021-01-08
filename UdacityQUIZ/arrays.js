@@ -1,4 +1,40 @@
 /*
+Another Type of Loop (6-8)
+
+use forEach() method to loop over following array, and add 100 to
+each of the elements if the value of the element is divisbile by 3.
+
+var test = [12, 929, 11, 3, 199, 1000, 7, 1, 24, 37, 4,
+    19, 300, 3775, 299, 36, 209, 148, 169, 299,
+    6, 109, 20, 58, 139, 59, 3, 1, 139
+];
+
+plan:
+
+call the test array using the forEach() method and declare a function
+declare a variable that stores the filtered elements to be processed (add 100) ??
+if statement that checks modulo by 3 === 0, add 100
+return the value
+
+*/
+
+var test = [12, 929, 11, 3, 199, 1000, 7, 1, 24, 37, 4,
+  19, 300, 3775, 299, 36, 209, 148, 169, 299,
+  6, 109, 20, 58, 139, 59, 3, 1, 139
+];
+
+//the 'item' parameter tests the if statement by check if item is divisible by 3
+//the 'index' parameter is the iterator variable. Each time loop runs, it moves on to the next index
+test.forEach(function addHundo(item, index) {
+// checking if the value in each element suits the if statement
+  if (item % 3 === 0) {
+// if true, we take the test array in the [index] number the loop is at. and adds 100.
+  test[index] += + 100;
+  }
+});
+console.log(test);
+
+/*
 Colors of the Rainbow (6-4)
 
 var rainbow = ["Red", "Orange", "Blackberry", "Blue"];

@@ -48,3 +48,14 @@ const theother = function (num) {
   return a;
 }
 console.log(theother(1331));
+
+
+
+const howManyHundreds = function (num) {
+    let x = num / 100;
+    let y = (num % 100) / 100;
+    let z = x - y; 
+      return z;
+  }
+  
+  console.log(howManyHundreds());
