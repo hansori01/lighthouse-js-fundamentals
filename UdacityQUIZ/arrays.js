@@ -26,7 +26,7 @@ var bills = [50.23, 19.12, 34.01,
   10.00, 99.22, 102.20, 100.10, 6.77, 2.22
 ];
 
-const totals = bills.map(function(item){
+const totals = bills.map((item) => {
   let tax = item * 0.15;
   item += tax;
 //to.Fixed returns a string. Number() turns into number.
