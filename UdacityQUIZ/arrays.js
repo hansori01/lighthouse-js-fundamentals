@@ -1,4 +1,45 @@
 /*
+I got Bills
+
+use map() to take the bills array
+create a second array called totals that show +15% tip added
+print totals using console.log
+used .toFixed(2) to round the values to a maximum of 2 decimal places.
+
+var bills = [50.23, 19.12, 34.01,
+    100.11, 12.15, 9.90, 29.11, 12.99,
+    10.00, 99.22, 102.20, 100.10, 6.77, 2.22
+];
+
+
+plan
+//declare a new variable and call the bills array with map method and declare a function
+// make a variable within funciton to store the tax amount
+// add the tax amount to the original item.
+// return the function to be stored in the new array.
+//print code
+
+*/
+
+var bills = [50.23, 19.12, 34.01,
+  100.11, 12.15, 9.90, 29.11, 12.99,
+  10.00, 99.22, 102.20, 100.10, 6.77, 2.22
+];
+
+const totals = bills.map(function(item){
+  let tax = item * 0.15;
+  item += tax;
+//to.Fixed returns a string. Number() turns into number.
+  item = Number(item.toFixed(2))
+//map() loops return into a new array.
+return item;
+});
+
+console.log(totals)
+
+
+
+/*
 Another Type of Loop (6-8)
 
 use forEach() method to loop over following array, and add 100 to
