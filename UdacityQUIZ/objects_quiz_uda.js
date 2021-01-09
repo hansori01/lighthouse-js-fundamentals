@@ -75,6 +75,11 @@ const facebookProfile = {
   }
   }
 };
+//we can access the name of keys as well.
+const keys = Object.keys
+console.log(keys(facebookProfile))
+// or 
+console.log(Object.keys(facebookProfile));
 
 //testing the syntax above omg it works i made facebook im quitting bootcamp bai jk.
 facebookProfile.postMessage('hello')
