@@ -1,3 +1,57 @@
+/* Nested NUmbers (6-10)
+
+Use a nested for loop to take numbers array and replace all of the values
+that are divisible by 2 (even numbers) with the string 'even' and all other
+numbers as 'odd'.
+
+plan.
+
+// I want to try to use a for...of loop nested within to see if that works?
+
+//create an outer for... of loop which will create a new variable.
+//create an inner for... of loop. experiemtn and see if we refer to the outer loop variable.
+// if statment = the variable is divisible by 2, if true print 'even'
+// implicit else. return 'odd'
+
+****after trying a for...of loop I can't seem to get it to print each element of each nested array.
+
+ok new plan - do it with an old school for loop. 
+*/
+
+
+var numbers = [
+  [243, 12, 23, 12, 45, 45, 78, 66, 223, 3],
+  [34, 2, 1, 553, 23, 4, 66, 23, 4, 55],
+  [67, 56, 45, 553, 44, 55, 5, 428, 452, 3],
+  [12, 31, 55, 445, 79, 44, 674, 224, 4, 21],
+  [4, 2, 3, 52, 13, 51, 44, 1, 67, 5],
+  [5, 65, 4, 5, 5, 6, 5, 43, 23, 4424],
+  [74, 532, 6, 7, 35, 17, 89, 43, 43, 66],
+  [53, 6, 89, 10, 23, 52, 111, 44, 109, 80],
+  [67, 6, 53, 537, 2, 168, 16, 2, 1, 8],
+  [76, 7, 9, 6, 3, 73, 77, 100, 56, 100]
+];
+
+//this loop is for accessing each row of the numbers array
+
+//loops the row of the array
+for(let row = 0; row < numbers.length; row++){
+  //loops each element of each row
+  for(let column = 0; column < numbers[row].length; column++) {
+    //checks if number is even
+    if(numbers[row][column]%2 === 0){
+      numbers[row][column] = 'even';
+    }
+    else {
+    numbers[row][column] = 'odd';
+    }
+    //logs to the console each outcome every iteration.
+    console.log(numbers[row][column])
+  }
+}
+
+
+
 /*
 I got Bills
 
@@ -124,9 +178,3 @@ if (array.length>= 7) {
   return false;
 }
 console.log(hasEnoughPlayers(team));
-
-
-
-
-var turnMeIntoAString = ["U", "d", "a", "c", "i", "t", "y"];
-console.log(turnMeIntoAString.join())
