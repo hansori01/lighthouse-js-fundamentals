@@ -35,3 +35,21 @@ return newArr;
 }
 
 console.log(concat([ 1, 2, 3 ], [ 4, 5, 6 ]), "=?", [ 1, 2, 3, 4, 5, 6 ]);
+
+
+
+// Stretch 
+// Take two arrays and make them rearranged in the new array.
+
+const merge = (arr1, arr2) => {
+  let newArr = [];
+  for (let arr of arr1) {
+    newArr.push(arr);
+  }
+  for (let arr of arr2){
+    newArr.push(arr)
+  }
+return newArr.sort();
+}
+
+console.log(merge([ 4, 5, 6 ], [ 1, 2, 3, 4 ], "=?", [ 1, 2, 3, 4, 4, 5, 6 ]));
