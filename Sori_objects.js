@@ -1,4 +1,4 @@
-/* objects can hold functions inside themselves.
+/* objects can have METHODS that hold functions inside themselves.
 we can also store arrays within objects
  */
 
@@ -27,6 +27,10 @@ var umbrella = {
           return 'It is already open';
       }
   },
-  test: (say) => 'implicit return in an object method ' + say
+  talk: () => '<3 hi i am ur umbrella i love u <3'
 };
-console.log(umbrella.test('hi')) // umbrella is object '.' accesses the test key. 'hi' is the argument for 'say' cool!
+console.log(umbrella.talk()) // umbrella is object '.' accesses the test key. 'hi' is the argument for 'say' cool!
+
+
+
+//
