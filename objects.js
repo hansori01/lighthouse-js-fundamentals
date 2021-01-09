@@ -30,4 +30,3 @@ var umbrella = {
   test: (say) => 'implicit return in an object method ' + say
 };
 console.log(umbrella.test('hi')) // umbrella is object '.' accesses the test key. 'hi' is the argument for 'say' cool!
-
