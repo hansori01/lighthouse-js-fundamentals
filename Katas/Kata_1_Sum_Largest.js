@@ -41,12 +41,21 @@ console.log(sumLargestNumbers([1, 10]));
 console.log(sumLargestNumbers([1, 2, 3]));
 
 
+//more advanced!
 //using .sort() Method
 // data.sort((a,b) => b-a)
 
 const sumLargestNumbers = data => {
-  data.sort((a,b)=> b-a);
-  for 
+  //we use .sort() method to arrange the array from lowest to highest value
+  data.sort((a,b)=> a-b);
+  //storage for values
+  var newArray = [];
+  // we start the array at length - 2 / then end it at the last index
+  for (let i = data.length - 2; i < data.length ; i++){
+    //we push the index item of each loop (just 2 loops) into the new array.
+    newArray.push(data[i]);
+  }
+  return newArray[0] + newArray[1];
 }
 console.log(sumLargestNumbers([10, 4, 34, 6, 92, 2]));
 console.log(sumLargestNumbers([1, 10]));
