@@ -14,7 +14,7 @@ Make a smart parking algorithm that takes in available parking / type of car
 const whereCanIPark = (spots, vehicle) => {
   // loop within a loop to access all the elements
   for (let y = 0; y < spots.length; y++) {
-    for (let x = 0; x < spots.length; x++) {
+    for (let x = 0; x < spots[y].length; x++) {
       //trick taught by Cat - declare a spot variable to keep if conditional cleaner
       const spot = spots[y][x]
       // check for S which fits a small and motorcycle
@@ -112,3 +112,53 @@ const whereCanIPark = function (spots, vehicle) {
     return false;
   }
 };
+
+
+/* I'm going to practice this one again after watching the video.
+He goes over console.log to check progress as he goes on.
+Which I will try to implement */
+
+
+const whereCanIPark = (spots, vehicle) => {
+  // we will do a loop and print element in the parent array. y = rows.
+  for (let y = 0; y < spots.length; y++) {
+   // console.log(spots[y])
+   //console log to check progress. Prints out element arrays properly.
+   // nested loop to now access the elements within the nested array.
+   // spots[y].length because we want to go the length of the array in the [y] index
+   for (let x = 0; x < spots[y].length; x++){
+     //console.log('spot:' + spots[y][x])
+     // we successfully logged each element within the nested array.
+     // spots[y][x] = y is the index of parent array. x is the index of smaller array.
+     //to shorten code, we are going to make a variable for spots[y][x] to refer to
+    const spot = spots[y][x];
+    if (vehicle === 'regular') {
+      if (spot === 'R') {
+        return [x, y]
+      }
+    }  else if (vehicle === 'small') {
+      if (spot === 'R' || spot === 'S') {
+        return [x, y]
+      }
+   }  else if (vehicle === 'motorcycle') {
+    if (spot === 'R' || spot === 'S' || spot === 'M') {
+      return [x, y]
+    }
+  }
+   }
+  }
+  return false;
+}
+console.log(whereCanIPark(
+  [
+    // COLUMNS ARE X
+    // 0    1    2    3    4    5
+    ['s', 's', 's', 'S', 'R', 'M'], // 0 ROWS ARE Y
+    ['s', 'M', 's', 'S', 'r', 'M'], // 1
+    ['s', 'M', 's', 'S', 'r', 'm'], // 2
+    ['S', 'r', 's', 'm', 'r', 'M'], // 3
+    ['S', 'r', 's', 'm', 'r', 'M'], // 4
+    ['S', 'r', 'S', 'M', 'M', 'S']  // 5
+  ],
+  'regular'
+));
