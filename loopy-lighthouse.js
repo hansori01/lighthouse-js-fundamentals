@@ -27,7 +27,7 @@ for (let i = 100; i <=200; i++){
 //Prints nubmers 100 to 200 with conditions.
 
 for (let i = 100; i <= 200; i++) {
-  if (i % 4 === 0 ) {
+  if (i % 4 === 0) {
     if (i % 3 === 0) {
       console.log('LoopyLighthouse');
     }
@@ -42,3 +42,40 @@ for (let i = 100; i <= 200; i++) {
     console.log(i);
   }
 }
+
+
+
+/*
+Here is the stretch execirse of Loopy-Lighthouse 2 
+
+wrap the above code into a function called loopyLighthouse(range, multiples, words)
+range - array of 2 numbers represents the start and end values for loop
+multiples - array of 2 numbers representign the multiple you want to replace with words
+words - array of 2 strings representing the words that replaces these numbers.
+
+*/
+
+function loopyLighthouse (range, multiples, words) {
+  for (let num = range[0]; num <= range[1]; num++) {
+    if (num % multiples[0] === 0 && num % multiples[1] === 0) {
+      console.log(words[0] + words[1]);
+    }
+    else if (num % multiples[0] === 0) {
+      console.log(words[0]);
+    }
+    else if (num % multiples[1] === 0) {
+      console.log(words[1]);
+    }
+    else {
+      console.log(num);
+    }
+  }
+  return;
+}
+
+loopyLighthouse([15, 90], [2, 5], ["Batty", "Beacon"]);
+
+
+
+
+/* this was Jesse Daoust's answer.
