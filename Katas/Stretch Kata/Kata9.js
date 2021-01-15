@@ -18,38 +18,41 @@ const sphereVolume = function (radius) {
   return volume;
 }
 
-//console.log(4186 < sphereVolume(10) && sphereVolume(10) < 4189);
+console.log(4186 < sphereVolume(10) && sphereVolume(10) < 4189);
 
 const coneVolume = function (radius, height) {
   let volume = (1 / 3) * PI * Math.pow(radius, 2) * height;
   return volume;
 }
 
-//console.log(45 < coneVolume(3, 5) && coneVolume(3, 5) < 49);
+console.log(45 < coneVolume(3, 5) && coneVolume(3, 5) < 49);
 
 const prismVolume = function (height, width, depth) {
   let volume = height * width * depth;
   return volume;
 }
-//console.log(prismVolume(3, 4, 5) === 60);
+console.log(prismVolume(3, 4, 5) === 60);
 // end of shape functions
 
-
+// totalVolume function takes in an array with different shapes
 const totalVolume = function (solids) {
+  //variable holds the total volume of air needed for the shape.
   let addVolume = 0;
+  //we loop through each element(shapes) of solids.
   for (shape of solids) {
-    switch (shape) {
-      case ('largeSphere'):
-        addVolume += sphereVolume(largeSphere.radius);
-        break;
-        case ('smallSphere'):
-          addVolume += sphereVolume(smallSphere.radius);
+    //shape.type shape references the object of different shapes. .type finds the key parameter of 'type'
+    //the key is that shape of solids, aren't strings - but variables!
+    switch (shape.type) {
+      // if the property is sphere (type: sphere)
+      case 'sphere':
+        // we run the sphere Volume calc function. and the radius is the shape.radius (solids(duck) shape(duck[i] = object))
+        addVolume += sphereVolume(shape.radius);
         break;
       case 'cone':
-        addVolume += coneVolume(cone.radius, cone.height);
+        addVolume += coneVolume(shape.radius, shape.height);
         break;
       case 'prism':
-        addVolume += prismVolume(prism.height, prism.width, prism.depth);
+        addVolume += prismVolume(shape.height, shape.width, shape.depth);
         break;
     }
   }
@@ -74,30 +77,5 @@ const duck = [
   cone
 ]
 
-//console.log(272000 < totalVolume(duck) && totalVolume(duck) < 275000);
-console.log(totalVolume(duck))
-
-
-
-/*
-//Test : print the name of the objects within the duck array.
-const nameObjects = solids => {
-  let nAme = ''
-  for (let shape of solids) {
-    switch (shape) {
-      case 'largeSphere':
-        nAme += shape + ' ';
-        break;
-      case 'smallSphere':
-        nAme += shape + ' ';
-        break;
-      case 'cone':
-        nAme += shape
-        break;
-    }
-  }
-  return nAme;
-}
-
-console.log(nameObjects(duck))
-*/
+console.log(272000 < totalVolume(duck) && totalVolume(duck) < 275000);
+//console.log(totalVolume(duck))
