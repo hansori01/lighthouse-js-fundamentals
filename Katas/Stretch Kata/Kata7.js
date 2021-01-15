@@ -29,14 +29,30 @@ console.log(camelCase("loopy lighthouse"));
 console.log(camelCase("supercalifragalisticexpialidocious"));
 
 
+/*
 
-
-/* testing to remind myself how split and join works
+in this one, in the if block - I put the i++
+not at the end of the block, but before the .push() method.
+that way, we are already skipping the space, and just going to manipulate
+the capital
 
 */
 
-let string = 'this is a string'
-string = string.split(' ')
-console.log(string)
-string = string.join('')
-console.log(string)
+const camelCase = function (input) {
+  let res = [];
+  for (let i = 0; i < input.length; i++) {
+    if (input[i] === ' ') {
+      /* whenever there is a space, 
+      we go to the next index [index + 1]. and turn that to UpperCase.*/
+      i++;
+      res.push(input[i].toUpperCase());
+      // i++ makes us skip the past the next value.
+    }
+    else {
+      res.push(input[i]);
+    }
+  }
+  return res.join('');
+};
+
+console.log(camelCase("this is a string"));
