@@ -40,8 +40,9 @@ const totalVolume = function (solids) {
   let addVolume = 0;
   //we loop through each element(shapes) of solids.
   for (shape of solids) {
-    //shape.type shape references the object of different shapes. .type finds the key parameter of 'type'
-    //the key is that shape of solids, aren't strings - but variables!
+    // loop through each element of solids.
+    // each element in solids is a VARIABLE 
+    // each variable has objects. We want to match shape.type 
     switch (shape.type) {
       // if the property is sphere (type: sphere)
       case 'sphere':

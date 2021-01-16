@@ -10,9 +10,13 @@ chooseRecipe(ingredientsA, ingredientsB, recipeObjects)
 
 const chooseRecipe = function (bakeryA, bakeryB, recipes) {
   let chosenRecipe = '';
+  // concat array of all ingredients weHave ['saffron','eggs',...]
   let weHave = bakeryA.concat(bakeryB)
-  for (recipe of recipes) {
+  // loop through each of the objects in recipes
+  for (let recipe of recipes) {
+    // every loop checks if recipe.ingredient [1] [0] have .INCLUDES() from weHave
     if (weHave.includes(recipe.ingredients[0]) && weHave.includes(recipe.ingredients[1])) {
+      // we store the recipe.name into the variable and keep checking.
       chosenRecipe = recipe.name
     }
   }
