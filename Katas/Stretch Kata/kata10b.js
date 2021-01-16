@@ -10,14 +10,24 @@ Use a date as a string (not Date object) formatted YYYY/MM/DD.
 
 // turns numeric days(strings) into word format
 const days = calcDay => {
-  switch (calcDay[1]) {
-    case '1': calcDay += 'st'; break;
-    case '2': calcDay += 'nd'; break;
-    case '3': calcDay += 'rd'; break;
-    default: calcDay += 'th'; break;
-  }
-  if (calcDay[0] === '0') {
-    calcDay = calcDay.substring(1)
+  // if 11/12/13 - it doesn't follow the convention of 'nd' or 'rd'. 
+  switch (calcDay) {
+    case '11': calcDay += 'th'; break;
+    case '12': calcDay += 'th'; break;
+    case '13': calcDay += 'th'; break;
+    default:
+      // nested switch statement. Checks condition of ending number to determin suffix.
+      switch (calcDay[1]) {
+        case '1': calcDay += 'st'; break;
+        case '2': calcDay += 'nd'; break;
+        case '3': calcDay += 'rd'; break;
+        default: calcDay += 'th'; break;
+      }
+      // nested if statement. if first string of day is 0, the day is returned without the 0.
+      if (calcDay[0] === '0') {
+        //.substring(amount) removes amount of string characters.
+        calcDay = calcDay.substring(1)
+      }
   }
   return ' ' + calcDay + ', ';
 }
@@ -47,8 +57,8 @@ const talkingCalendar = function (date) {
   return wordMon + wordDay + dateSplit[0];
 };
 console.log(talkingCalendar("2017/12/02"));
-console.log(talkingCalendar("2007/11/11"));
-console.log(talkingCalendar("1987/08/24"));
+console.log(talkingCalendar("2007/11/22"));
+console.log(talkingCalendar("1987/08/33"));
 
 
 
