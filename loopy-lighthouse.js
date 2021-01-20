@@ -74,3 +74,16 @@ function loopyLighthouse (range, multiples, words) {
 }
 
 loopyLighthouse([15, 90], [2, 5], ["Batty", "Beacon"]);
+
+
+
+
+
+
+// This is solution from Eloquent JS
+// More concise and uses || operator in console log.
+
+for (let num = 1; num<=100; num++){
+  let output = '';
+  if (num%3===0) { output += 'Fizz' } 
+  if (num %5===0) { output += 'Buzz'} console.log(output || num) }
