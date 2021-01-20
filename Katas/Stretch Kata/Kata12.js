@@ -5,9 +5,13 @@
 
 
 const organizeInstructors = function (instructors) {
+  // stores the array of teacher names per class
   let classGuide = {};
+  // loops through objects held inside an array
   for (let subject of instructors) {
+    // if the course in object = iOS
     if (subject.course === 'iOS') {
+      // if there is no property for classGuide object
       if (!(classGuide.iOS)) {
       classGuide.iOS = [];
       classGuide.iOS.push(subject.name)
@@ -51,7 +55,8 @@ console.log(organizeInstructors([
 
 
 
-
+//second scenario. I want to learn how to return 
+//while excluding the objects that doesn't have value within the array.
 
 const organizeInstructors = function (instructors) {
   let classGuide = {
