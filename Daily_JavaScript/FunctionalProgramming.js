@@ -32,3 +32,17 @@ const add = (x,y,z) => x + y + z;
 console.log(add(1,2,3))
 
 //useful if you can't supply all the arguments to a function at one time.
+
+
+
+
+/* take two arrays in an argument. Compare and ONLY return non-matching numbers
+ in a new array
+ */
+
+function diffArray(arr1, arr2) {
+  return arr1
+  .concat(arr2) // contact the two arrays together
+  .filter(item => !arr1.includes(item) || !arr2.includes(item)) // filter -> only return if arr1 or arr2 is NOT included in (item)
+}
+console.log(diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]));
