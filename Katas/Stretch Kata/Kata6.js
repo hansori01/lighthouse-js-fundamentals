@@ -47,7 +47,7 @@ Plan
 
 
 const repeatNumbers = function (data) {
-  // variable stores the repeated values in string form.
+  // variable stores the repeaested values in string form.
   let repeat = '';
   // first loop for accessing the elements (arrays)
   for (let i = 0; i < data.length; i++) {
