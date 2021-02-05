@@ -1,3 +1,24 @@
+// revisited for W1_d4 stretch
+
+const repeatNumbers = function (data) {
+  let str = '';
+  for (let elem of data) {
+    for (let i = 0; i < elem[1]; i++) {
+      str += elem[0]
+    }
+    str += ', '
+  }
+  return str;
+};
+
+console.log(repeatNumbers([[1, 10]]));
+console.log(repeatNumbers([[1, 2], [2, 3]]));
+console.log(repeatNumbers([[10, 4], [34, 6], [92, 2]]));
+
+
+
+
+
 /* 
 
 Kata 6 - Repeating Numbers
